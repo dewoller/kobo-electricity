@@ -14,10 +14,9 @@ values= [0] * nzones
 
 root = Tk()
 labelText = StringVar()
-depositLabel = Label(root, text = "hello",textvariable=labelText, font=("Helvetica", 77))
+depositLabel = Label(root, text = "hello",textvariable=labelText, font=("Helvetica", 250))
 depositLabel.pack(side=LEFT)
 #root.mainloop()
-labelText.set('hello')
 
 while True:
     root.update()
@@ -31,7 +30,9 @@ while True:
     if zone<0 or zone >= nzones:
         continue
     values[ zone ] = int(payload[1])
-    labelText.set(sum( values))
+    if zone==9:
+        labelText.set('')
+        labelText.set(sum( values))
         
 
 
