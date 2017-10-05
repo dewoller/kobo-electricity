@@ -13,9 +13,16 @@ values= [0] * nzones
 
 
 root = Tk()
+
+root.geometry('800x600+0+0')
+root.overrideredirect(True)
+root.overrideredirect(False)
+root.attributes('-fullscreen',True)
+
 labelText = StringVar()
-depositLabel = Label(root, text = "hello",textvariable=labelText, font=("Helvetica", 250))
-depositLabel.pack(side=LEFT)
+depositLabel = Label(root, text = "hello",textvariable=labelText, font=("Helvetica", 200))
+depositLabel.pack(side=RIGHT)
+labelText.set('start')
 #root.mainloop()
 
 while True:
@@ -31,7 +38,6 @@ while True:
         continue
     values[ zone ] = int(payload[1])
     if zone==9:
-        labelText.set('')
         labelText.set(sum( values))
         
 
